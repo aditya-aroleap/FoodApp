@@ -44,8 +44,12 @@ const _CartScreen: React.FC<CartScreenProps> = (props) => {
 
     const onValidateOrder = () => {
 
-        navigate('LoginPage');
-
+        if(!user.verified){
+            navigate('LoginPage');
+        }else{
+            console.log('order now');
+            
+        }
     }
 
 

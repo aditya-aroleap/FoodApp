@@ -3,7 +3,7 @@ import { Dispatch  } from 'react';
 import { BASE_URL } from '../../utils';
 import { LocationGeocodedAddress as Address } from 'expo-location'
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { FoodModel } from '../model';
+import { FoodModel, UserModal } from '../model';
 
 export interface updateLocationAction{
     readonly type: 'ON_UPDATE_LOCATION',
@@ -22,7 +22,7 @@ export interface UpdateCartAction{
 
 export interface UserLoginAction{
     readonly type: 'ON_USER_LOGIN',
-    payload: string
+    payload: UserModal
 }
 
 export type UserAction = updateLocationAction | userErrorAction | UpdateCartAction | UserLoginAction;
@@ -62,7 +62,7 @@ export const OnUserLogin = (email: string, password: string) => {
     return async ( dispatch: Dispatch<UserAction>) => {
 
         try {
-             const response = await axios.post<string>(`${BASE_URL}user/login`, {
+             const response = await axios.post<UserModal>(`${BASE_URL}/user/login`, {
                 email,
                 password
             })
@@ -95,7 +95,7 @@ export const OnUserSignup = (email: string, phone: string ,password: string) => 
     return async ( dispatch: Dispatch<UserAction>) => {
 
         try {
-             const response = await axios.post<string>(`${BASE_URL}user/signup`, {
+             const response = await axios.post<UserModal>(`${BASE_URL}/user/signup`, {
                 email,
                 phone,
                 password

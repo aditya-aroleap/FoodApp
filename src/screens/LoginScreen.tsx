@@ -18,8 +18,6 @@ const _LoginScreen: React.FC<LoginProps> = ({ OnUserLogin, OnUserSignup, userRed
     const [password, setPassword] = useState('')
     const [title, setTitle] = useState('Login')
     const [isSignup, setIsSignup] = useState(false)
-    
-
 
     const onTapAuthenticate = () => {
 

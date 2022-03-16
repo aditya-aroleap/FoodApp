@@ -33,10 +33,9 @@ export interface FoodAvailability{
 }
 
 export interface UserModal{
-    fName: String;
-    lName: String;
-    phoneNumber: Number;
+    email: String;
     token: String;
+    verified: boolean;
 }
 
 export interface UserState{
